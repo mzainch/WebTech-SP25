@@ -1,0 +1,214 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+.announcement-bar{
+    background-color: #B17A37;
+    justify-items: center;
+    top: 0;
+    left: 0;
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#announcement-text {
+    padding: 13px;
+    font-size: medium;
+    color: white;
+}
+.middle-nav-bar{
+
+    width: 100%;
+    height: 10px;
+    left: 40%;
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    height: 10px;
+    padding: 15px 0px;
+    background-color: white;
+    
+}
+.right-middle-nav{
+    margin: 0 20px;
+}
+.left-middle-nav ul li, .right-middle-nav ul li {
+    display: inline;
+}
+.left-middle-nav ul li a{
+    margin: 0 10px;
+}
+a{
+    text-decoration: none ;
+    color: black;
+}
+.bottom-nav-bar{
+    width: 100%;
+    background-color: white;
+    display: flex;
+    padding: 10px 10px;
+    justify-content: space-between;
+}
+
+.logo{
+    width: 100px;
+    height: auto;  
+    display: block;  
+}
+.center-bottom-nav{
+    justify-content: center;
+}
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  
+.nav-menu li {
+    position: relative;
+  }
+  
+.nav-menu a {
+    text-decoration: none;
+    color: black;
+    padding: 10px 15px;
+    display: block;
+ }
+  
+.dropdown-menu {
+    list-style: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    display: none; 
+    z-index: 1000;
+    padding: 0; 
+  }
+  
+.dropdown-menu li {
+    white-space: nowrap; 
+  }
+  
+.dropdown-menu li a {
+    padding: 10px;
+    display: block;
+    color: black;
+  }
+  
+.dropdown:hover .dropdown-menu {
+    display: block; 
+  }
+.right-bottom-nav{
+    align-items: center;
+    justify-content: center;
+}
+.right-bottom-nav ul li{
+    display: inline;
+}
+.right-bottom-nav i {
+    font-size: 25px;
+    padding: 0 5px;
+}
+/* Hero Section */
+.hero {
+    background-image: url('https://trickers.com/cdn/shop/files/BOURTON_COUNTRY_SHOE_hp.jpg?v=1742994377&width=2000'); 
+    background-size: cover; 
+    background-position: center; 
+    width: 100%; 
+    height: 80vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+  }
+  
+.hero-content {
+    max-width: 100%; 
+    padding: 20px;
+    border-radius: 0; 
+}
+  
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 15px;
+}
+  
+.hero p {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+  
+.shop-now-btn {
+    background-color: white; 
+    color: black;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+  
+.shop-now-btn:hover {
+    background-color: lightgray; 
+}
+.product-header{
+    width: 100%;
+    height: auto;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.products{
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    background-color: white;
+    height: auto;
+}
+.products-img{
+    width: 25vw;
+    height: auto;
+}
+.product-title, .product-price{
+    text-align: center;
+    background-color: white;
+    color: black;
+    margin: 0;
+    padding: 0;
+}
+.products > div:hover {
+    border: 1px solid black; 
+}
+.footer{
+    width: 100%;
+    height: auto;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 30px 0;
+    
+}
+.right-footer ul li a{
+    color: white;
+    margin: 0 30px;
+}
+.social-footer{
+    margin: 0 50px;
+}
+.social-footer ul li a{
+    color: white;
+}
+.footer ul li {
+    display: inline;
+}

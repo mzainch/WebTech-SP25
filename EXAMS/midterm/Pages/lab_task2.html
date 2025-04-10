@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - E-Commerce</title>
+    <link rel="stylesheet" href="lab_task2.css">
+</head>
+<body>
+    <div class="checkout-container">
+        <h1>Checkout Page</h1>
+        <form id="checkout-form" onsubmit="return validateForm()">
+
+            <label for="full-name">Full Name</label>
+            <input type="text" id="full-name" name="full-name" required pattern="[A-Za-z\s]+" placeholder="Enter your full name">
+            <div class="error-message" id="name-error"></div>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="Enter your email">
+            <div class="error-message" id="email-error"></div>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required pattern="\d{11}" placeholder="Enter your phone number" minlength="11" maxlength="11">
+            <div class="error-message" id="phone-error"></div>
+
+            <label for="address">Address</label>
+            <textarea id="address" name="address" required placeholder="Enter your address"></textarea>
+            <div class="error-message" id="address-error"></div>
+
+            <label for="card-number">Credit Card Number</label>
+            <input type="text" id="card-number" name="card-number" required pattern="\d{16}" placeholder="Enter your card number" minlength="16" maxlength="16">
+            <div class="error-message" id="card-number-error"></div>
+
+            <label for="expiry-date">Expiry Date</label>
+            <input type="month" id="expiry-date" name="expiry-date" required placeholder="Select expiry date">
+            <div class="error-message" id="expiry-date-error"></div>
+
+            <label for="cvv">CVV</label>
+            <input type="text" id="cvv" name="cvv" required pattern="\d{3}" placeholder="Enter CVV" minlength="3" maxlength="3">
+            <div class="error-message" id="cvv-error"></div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script src="lab_task2.js"></script>
+</body>
+</html>
