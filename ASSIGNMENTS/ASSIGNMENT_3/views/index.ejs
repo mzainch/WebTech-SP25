@@ -1,0 +1,34 @@
+<section class="hero">
+  <div class="hero-content">
+    <h1>Welcome to Tricker's Country Shoes</h1>
+    <p>Explore the finest collection of handcrafted shoes</p>
+    <a href="#" class="shop-now-btn">Shop Now</a>
+  </div>
+</section>
+
+<div class="product-header">
+  <h1 class="ph">SHOP OUR PRODUCTS</h1>
+</div>
+
+<div class="products">
+  <% const products = [ { title: 'BOURTON COUNTRY SHOE - ACORN ANTIQUE', price:
+  'RS.17999.00', img:
+  'https://trickers.com/cdn/shop/files/bourton-country-shoe-acorn-antique-851335.jpg?v=1707835223&width=1200'
+  }, { title: 'BOURTON COUNTRY SHOE - MARRON ANTIQUE', price: 'RS.17999.00',
+  img:
+  'https://trickers.com/cdn/shop/files/bourton-country-shoe-black-980609.jpg?v=1707835496&width=1200'
+  }, { title: 'BOURTON COUNTRY SHOE - ESPRESSO BURNISHED', price: 'RS.17999.00',
+  img:
+  'https://trickers.com/cdn/shop/files/bourton-country-shoe-espresso-burnished-234404.jpg?v=1707835562&width=1200'
+  }, { title: 'BOURTON COUNTRY SHOE - BLACK', price: 'RS.17999.00', img:
+  'https://trickers.com/cdn/shop/files/bourton-country-shoe-marron-antique-566503.jpg?v=1707835283&width=1200'
+  } ]; %> <% products.forEach(product => { %>
+  <div>
+    <a href="#">
+      <img src="<%= product.img %>" alt="" class="products-img" />
+      <p class="product-title"><%= product.title %></p>
+      <p class="product-price"><%= product.price %></p>
+    </a>
+  </div>
+  <% }); %>
+</div>
