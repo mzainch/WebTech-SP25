@@ -1,0 +1,30 @@
+<% if (success && success.length > 0) { %>
+<div
+  id="flash-alert"
+  class="alert alert-success text-center w-50 mx-auto"
+  role="alert"
+>
+  <%= success %>
+</div>
+<% } %> <% if (error && error.length > 0) { %>
+<div
+  id="flash-alert"
+  class="alert alert-danger text-center w-50 mx-auto"
+  role="alert"
+>
+  <%= error %>
+</div>
+<% } %>
+
+<script>
+  // Auto dismiss alert after 3 seconds
+  setTimeout(() => {
+    const alert = document.getElementById("flash-alert");
+    if (alert) {
+      alert.classList.remove("show");
+      alert.classList.add("fade");
+      alert.style.opacity = "0";
+      setTimeout(() => alert.remove(), 500); // Remove it from DOM after fade
+    }
+  }, 3000); // 3 seconds
+</script>
