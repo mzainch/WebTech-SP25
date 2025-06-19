@@ -1,0 +1,28 @@
+<section class="shop-hero">
+  <div class="product-heading">
+    <h1>Shop All Products</h1>
+    <p>Explore our latest handcrafted shoes collection</p>
+  </div>
+</section>
+
+<div class="product-header">
+  <h1 class="ph">OUR COLLECTION</h1>
+</div>
+
+<div class="products">
+  <div class="product-grid">
+    <% products.forEach(product => { %>
+    <div class="product-card">
+      <a href="/products/<%= product.slug %>">
+        <img
+          src="<%= product.img %>"
+          alt="<%= product.title %>"
+          class="products-img"
+        />
+        <p class="product-title"><%= product.title %></p>
+        <p class="product-price"><%= product.price %></p>
+      </a>
+    </div>
+    <% }); %>
+  </div>
+</div>
