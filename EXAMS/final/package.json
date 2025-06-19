@@ -18,6 +18,7 @@
     "express-ejs-layouts": "^2.5.1",
     "express-session": "^1.18.1",
     "fs-extra": "^11.3.0",
-    "mongoose": "^8.16.0"
+    "mongoose": "^8.16.0",
+    "multer": "^2.0.1"
   }
 }

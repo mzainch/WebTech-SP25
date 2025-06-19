@@ -14,10 +14,15 @@ router.post("/login", async (req, res) => {
 
   if (!user || !(await bcrypt.compare(password, user.password))) {
     req.flash("error", "Invalid login credentials");
-    res.redirect("/login");
+    return res.redirect("/login");
   }
 
   req.session.userId = user._id;
+  req.session.user = {
+    email: user.email,
+    role: user.role, //
+  };
+
   res.redirect("/");
 });
 
@@ -30,7 +35,7 @@ router.post("/register", async (req, res) => {
   const existingUser = await User.findOne({ email });
 
   if (existingUser) {
-    req.flash("error", "Email already taken1");
+    req.flash("error", "Email already taken");
     return res.render("register", {
       layout: false,
       error: "Email already taken",
@@ -38,8 +43,10 @@ router.post("/register", async (req, res) => {
   }
 
   const hashedPassword = await bcrypt.hash(password, 10);
+
   const newUser = new User({ email, password: hashedPassword });
   await newUser.save();
+
   req.flash("success", "Successfully registered!");
   res.render("login", {
     layout: false,

@@ -11,8 +11,8 @@ const productRoutes = require("./routes/productRoutes");
 const shopRoutes = require("./routes/shopRoutes");
 const cartRoutes = require("./routes/cartRoutes");
 const flash = require("connect-flash");
-const orderRoutes = require('./routes/orderRoutes');
-
+const orderRoutes = require("./routes/orderRoutes");
+const vehicleRoutes = require("./routes/vehicleRoutes");
 
 const app = express();
 
@@ -22,8 +22,8 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then(() => console.log("✅ Connected to MongoDB"))
-  .catch((err) => console.error("❌ MongoDB connection error:", err));
+  .then(() => console.log("Connected to MongoDB"))
+  .catch((err) => console.error("MongoDB connection error:", err));
 
 // Middleware
 app.use(express.urlencoded({ extended: true }));
@@ -54,15 +54,19 @@ app.use(async (req, res, next) => {
   }
   res.locals.cart = req.session.cart;
 
+  res.locals.isAuthenticated = !!req.session.userId;
+
   if (req.session.userId) {
-    res.locals.isAuthenticated = true;
-    res.locals.currentUser = await User.findById(req.session.userId).catch(
-      () => null
-    );
+    try {
+      const user = await User.findById(req.session.userId);
+      res.locals.user = user;
+    } catch (err) {
+      res.locals.user = null;
+    }
   } else {
-    res.locals.isAuthenticated = false;
-    res.locals.currentUser = null;
+    res.locals.user = null;
   }
+
   next();
 });
 
@@ -73,7 +77,7 @@ app.use("/", productRoutes);
 app.use("/", shopRoutes);
 app.use("/", cartRoutes);
 app.use("/", orderRoutes);
-
+app.use("/", vehicleRoutes);
 
 const PORT = 3000;
 app.listen(PORT, () => {

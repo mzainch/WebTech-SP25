@@ -4,7 +4,7 @@ const fs = require("fs-extra");
 const path = require("path");
 const router = express.Router();
 
-const isAuthenticated = require("../middleware/authMiddleware");
+const { isAuthenticated, isAdmin } = require("../middleware/authMiddleware");
 
 router.get("/cart", isAuthenticated, (req, res) => {
   res.render("cart", { cart: req.session.cart || [] });
@@ -18,11 +18,11 @@ router.get("/products/:slug", async (req, res) => {
   const product = products.find((p) => p.slug === slug);
 
   if (!product) {
-    console.log("❌ Product not found!");
+    console.log("Product not found!");
     return res.status(404).send("Product not found");
   }
 
-  console.log("✅ Product found:", product.title);
+  console.log("Product found:", product.title);
   res.render("product", { product });
 });
 

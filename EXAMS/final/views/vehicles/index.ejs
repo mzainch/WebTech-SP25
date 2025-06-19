@@ -1,0 +1,29 @@
+<section class="shop-hero">
+  <div class="product-heading">
+    <h1>All Vehicles</h1>
+    <p>Explore our collection of cars, SUVs, and more</p>
+  </div>
+</section>
+
+<div class="product-header">
+  <h1 class="ph">VEHICLE COLLECTION</h1>
+</div>
+
+<div class="products">
+  <div class="product-grid">
+    <% vehicles.forEach(vehicle => { %>
+    <div class="product-card">
+      <img
+        src="<%= vehicle.image %>"
+        alt="<%= vehicle.name %>"
+        class="products-img"
+      />
+      <p class="product-title"><%= vehicle.name %></p>
+      <p class="product-price">$<%= vehicle.price %></p>
+      <p class="product-meta">
+        Brand: <%= vehicle.brand %> | Type: <%= vehicle.type %>
+      </p>
+    </div>
+    <% }); %>
+  </div>
+</div>

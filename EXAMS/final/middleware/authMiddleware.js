@@ -5,4 +5,16 @@ function isAuthenticated(req, res, next) {
   res.redirect("/login");
 }
 
-module.exports = isAuthenticated;
+function isAdmin(req, res, next) {
+  if (req.session.user && req.session.user.role === "admin") {
+    return next();
+  }
+
+  req.flash("error", "Admin access only.");
+  res.redirect("/");
+}
+
+module.exports = {
+  isAuthenticated,
+  isAdmin,
+};

@@ -83,26 +83,14 @@
           <li><a href="#">PRODUCT 1</a></li>
         </ul>
       </li>
-      <li class="dropdown">
-        <a href="#">ACCESSORIES<i class="fa-solid fa-angle-down"></i></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">PRODUCT 1</a></li>
-          <li><a href="#">PRODUCT 1</a></li>
-          <li><a href="#">PRODUCT 1</a></li>
-          <li><a href="#">PRODUCT 1</a></li>
-          <li><a href="#">PRODUCT 1</a></li>
-        </ul>
-      </li>
-      <li class="dropdown">
-        <a href="#">OUR WORLD<i class="fa-solid fa-angle-down"></i></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">PRODUCT 1</a></li>
-          <li><a href="#">PRODUCT 1</a></li>
-          <li><a href="#">PRODUCT 1</a></li>
-          <li><a href="#">PRODUCT 1</a></li>
-          <li><a href="#">PRODUCT 1</a></li>
-        </ul>
-      </li>
+
+      <!-- New: Vehicles Link -->
+      <li><a href="/vehicles">VEHICLES</a></li>
+
+      <!-- New: Admin-only Dashboard Link -->
+      <% if (isAuthenticated && user && user.role === 'admin') { %>
+      <li><a href="/admin/vehicles">DASHBOARD</a></li>
+      <% } %>
     </ul>
   </div>
 
@@ -131,3 +119,4 @@
     </ul>
   </div>
 </div>
+

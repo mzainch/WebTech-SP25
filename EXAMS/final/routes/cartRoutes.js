@@ -3,7 +3,8 @@ const router = express.Router();
 const fs = require("fs-extra");
 const path = require("path");
 
-const isAuthenticated = require("../middleware/authMiddleware");
+const { isAuthenticated, isAdmin } = require("../middleware/authMiddleware");
+
 
 router.get("/cart", isAuthenticated, (req, res) => {
   res.render("cart", { cart: req.session.cart || [] });
@@ -46,7 +47,7 @@ router.post("/remove-from-cart/:index", (req, res) => {
 router.post("/checkout", (req, res) => {
   // Placeholder logic
   req.session.cart = []; // Clear cart after checkout
-  res.send("✅ Order placed successfully! (Implement payment later)");
+  res.send("Order placed successfully!");
 });
 
 module.exports = router;

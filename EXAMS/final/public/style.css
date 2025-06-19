@@ -131,7 +131,6 @@ a {
   justify-content: center;
 }
 .right-bottom-nav ul li {
-  
   display: inline;
 }
 .right-bottom-nav i {
@@ -268,5 +267,11 @@ a {
   max-width: 100%;
   padding: 20px;
   border-radius: 0;
+  text-align: center;
+}
+.product-meta {
+  font-size: 14px;
+  color: #777;
+  margin-top: -8px;
   text-align: center;
 }

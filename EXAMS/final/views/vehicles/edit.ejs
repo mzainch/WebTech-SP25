@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Edit Vehicle</title>
+    <!-- Bootstrap 3.2 Theme -->
+    <link
+      href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <style>
+      body {
+        background-color: #f8f8f8;
+      }
+      .form-container {
+        margin-top: 50px;
+        background-color: #fff;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-md-offset-2 form-container">
+          <form
+            class="form-horizontal"
+            action="/admin/vehicles/<%= vehicle._id %>"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            <fieldset>
+              <!-- Form Name -->
+              <legend class="text-center">Edit Vehicle</legend>
+
+              <!-- Name -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="name">Name</label>
+                <div class="col-md-6">
+                  <input
+                    id="name"
+                    name="name"
+                    class="form-control input-md"
+                    type="text"
+                    value="<%= vehicle.name %>"
+                    required
+                  />
+                </div>
+              </div>
+
+              <!-- Brand -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="brand">Brand</label>
+                <div class="col-md-6">
+                  <input
+                    id="brand"
+                    name="brand"
+                    class="form-control input-md"
+                    type="text"
+                    value="<%= vehicle.brand %>"
+                    required
+                  />
+                </div>
+              </div>
+
+              <!-- Price -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="price">Price</label>
+                <div class="col-md-6">
+                  <input
+                    id="price"
+                    name="price"
+                    class="form-control input-md"
+                    type="number"
+                    value="<%= vehicle.price %>"
+                    required
+                  />
+                </div>
+              </div>
+
+              <!-- Type -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="type">Type</label>
+                <div class="col-md-6">
+                  <select id="type" name="type" class="form-control">
+                    <option value="sedan" <%= vehicle.type === 'sedan' ? 'selected' : '' %>>Sedan</option>
+                    <option value="SUV" <%= vehicle.type === 'SUV' ? 'selected' : '' %>>SUV</option>
+                    <option value="truck" <%= vehicle.type === 'truck' ? 'selected' : '' %>>Truck</option>
+                    <option value="other" <%= vehicle.type === 'other' ? 'selected' : '' %>>Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Current Image -->
+              <div class="form-group">
+                <label class="col-md-4 control-label">Current Image</label>
+                <div class="col-md-6">
+                  <img src="<%= vehicle.image %>" width="150" />
+                </div>
+              </div>
+
+              <!-- Replace Image -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="image">Replace Image</label>
+                <div class="col-md-6">
+                  <input
+                    id="image"
+                    name="image"
+                    class="form-control input-md"
+                    type="file"
+                    accept="image/*"
+                  />
+                </div>
+              </div>
+
+              <!-- Submit Buttons -->
+              <div class="form-group">
+                <div class="col-md-8 text-center">
+                  <button type="submit" class="btn btn-primary">Update</button>
+                  <a href="/admin/vehicles" class="btn btn-default">Cancel</a>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

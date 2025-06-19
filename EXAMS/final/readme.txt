@@ -1,0 +1,1 @@
+register user and after that change its role to admin in mongoDb
